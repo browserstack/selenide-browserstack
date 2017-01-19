@@ -1,4 +1,4 @@
-# selenide-java-browserstack
+# selenide-browserstack
 
 [Selenide](http://selenide.org/) Integration with BrowserStack.
 
