@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
+import java.util.regex.Pattern;
 
 public class SingleTest extends BrowserStackTest {
 
@@ -18,7 +19,7 @@ public class SingleTest extends BrowserStackTest {
 
 		sleep(2000);
 
-		Assert.assertEquals(title(), "BrowserStack - Google Search");
+		Assert.assertTrue(Pattern.matches("BrowserStack -.*", title()));
 
 	}
 

@@ -20,7 +20,7 @@
 		<surefire.fork.count>5</surefire.fork.count>
 		<cucumber.version>1.1.2</cucumber.version>
 		<selenium.version>2.31.0</selenium.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>5.0</junit.version>
 	</properties>
 
 	<dependencies>
