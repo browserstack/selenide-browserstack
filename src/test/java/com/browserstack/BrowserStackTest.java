@@ -68,6 +68,9 @@ public class BrowserStackTest {
 			l = new Local();
 			Map<String, String> options = new HashMap<String, String>();
 			options.put("key", accessKey);
+			String currentTime = String.valueOf(System.currentTimeMillis());
+			options.put("localIdentifier", currentTime);
+			capabilities.setCapability("browserstack.localIdentifier", currentTime);
 			l.start(options);
 		}
 
@@ -80,7 +83,7 @@ public class BrowserStackTest {
 
 	@AfterMethod(alwaysRun=true)
 	public void tearDown() throws Exception {
-		driver.quit();
+		WebDriverRunner.closeWebDriver();
 		if (l != null) l.stop();
 	}
 }
