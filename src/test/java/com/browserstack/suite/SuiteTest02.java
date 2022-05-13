@@ -13,13 +13,25 @@ public class SuiteTest02 extends BrowserStackTest {
     @Test
     public void test() throws Exception {
 
-        open("http://www.google.com");
+		open("https://www.bstackdemo.com");
+		sleep(2000);
 
-        $(By.name("q")).setValue("BrowserStack Automate").pressEnter();
+		String selectedProduct = $(By.xpath("//*[@id=\"2\"]/p")).text();
+		$(By.xpath("//*[@id=\"2\"]/div[4]")).click();
+		sleep(2000);
 
-        sleep(2000);
+		// waiting for cart to load
+		while(!$(".float-cart__content").isDisplayed()) {
+			sleep(1000);
+		}
 
-        Assert.assertEquals(title(), "BrowserStack Automate - Google Search");
+		String productInCart = $(
+			By.xpath(
+				"//*[@id=\"__next\"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]"
+			)
+		).text();
 
+		// assert the product clicked has been added to cart
+		Assert.assertEquals(selectedProduct, productInCart);
     }
 }
