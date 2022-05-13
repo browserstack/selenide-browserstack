@@ -1,11 +1,11 @@
 {
-  "server": "hub-cloud.browserstack.com",
+  "server": "hub.browserstack.com",
   "user": "BROWSERSTACK_USERNAME",
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "project": "Example",
-    "build": "Java Selenide Suite",
+    "build": "browserstack-build-1",
+		"name": "selenide_suite_test",
     "browserstack.debug": true
   },
 
@@ -18,9 +18,6 @@
     },
     "safari": {
       "browser": "safari"
-    },
-    "ie": {
-      "browser": "internet explorer"
     }
   }
 }
