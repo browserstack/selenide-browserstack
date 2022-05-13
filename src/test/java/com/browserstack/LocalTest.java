@@ -12,20 +12,16 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
-import java.util.regex.Pattern;
 
 public class LocalTest extends BrowserStackTest {
 
 	@Test
 	public void test() throws Exception {
 
-		open("http://www.google.com");
+		open("http://bs-local.com:45691/check");
 
-		$(By.name("q")).setValue("BrowserStack").pressEnter();
+		String pageText = $("body").text();
 
-		sleep(2000);
-
-		Assert.assertTrue(Pattern.matches("BrowserStack -.*", title()));
-
+		Assert.assertEquals(pageText, "Up and running");
 	}
 }
