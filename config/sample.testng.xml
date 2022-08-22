@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Local">
-	<test name="LocalTest">
+<suite name="Sample">
+	<test name="SampleTest">
 		<classes>
-			<class name="com.browserstack.LocalTest"/>
+			<class name="com.browserstack.SampleTest"/>
 		</classes>
 	</test>
 </suite>
