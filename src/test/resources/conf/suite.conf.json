@@ -5,7 +5,8 @@
 
   "capabilities": {
     "build": "browserstack-build-1",
-		"name": "selenide_suite_test",
+    "name": "selenide_suite_test",
+    "browserstack.source": "selenide:sample-master-v1.0",
     "browserstack.debug": true
   },
 
