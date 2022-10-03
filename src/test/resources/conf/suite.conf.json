@@ -6,7 +6,6 @@
   "capabilities": {
     "build": "browserstack-build-1",
     "name": "BStack suite selenide",
-    "browserstack.source": "selenide:sample-master-v1.0",
     "browserstack.debug": true
   },
 
