@@ -68,7 +68,9 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<id>getClasspathFilenames</id>
@@ -96,7 +98,7 @@
 
 	<profiles>
 		<profile>
-			<id>sample</id>
+			<id>sample-test</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -116,7 +118,7 @@
 		</profile>
 
 		<profile>
-			<id>local</id>
+			<id>sample-local-test</id>
 			<build>
 				<plugins>
 					<plugin>
