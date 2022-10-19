@@ -6,6 +6,8 @@
 userName: BROWSERSTACK_USERNAME
 accessKey: BROWSERSTACK_ACCESS_KEY
 
+framework: selenide-testng
+
 # ======================
 # Organizing your tests
 # ======================
