@@ -44,7 +44,7 @@ public class BrowserStackTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-			WebDriverRunner.closeWebDriver();
+        WebDriverRunner.getWebDriver().quit();
     }
 
     private String getUserDir() {
