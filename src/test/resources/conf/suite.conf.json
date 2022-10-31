@@ -1,23 +1,31 @@
 {
-  "server": "hub.browserstack.com",
+  "server": "hub-cloud.browserstack.com",
   "user": "BROWSERSTACK_USERNAME",
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "build": "browserstack-build-1",
-    "name": "BStack suite selenide",
-    "browserstack.debug": true
+    "bstack:options": {
+      "buildName": "browserstack-build-1",
+      "sessionName": "BStack suite selenide",
+      "debug": true
+    }
   },
 
   "environments": {
     "chrome": {
-      "browser": "chrome"
+      "browserName": "chrome"
     },
     "firefox": {
-      "browser": "firefox"
+      "browserName": "firefox"
     },
     "safari": {
-      "browser": "safari"
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "safari"
+    },
+    "ie": {
+      "browserName": "internet explorer"
     }
   }
 }

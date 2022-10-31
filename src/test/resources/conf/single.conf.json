@@ -1,17 +1,20 @@
 {
-	"server": "hub.browserstack.com",
+	"server": "hub-cloud.browserstack.com",
 	"user": "BROWSERSTACK_USERNAME",
 	"key": "BROWSERSTACK_ACCESS_KEY",
 
 	"capabilities": {
-		"build": "browserstack-build-1",
-		"name": "BStack single selenide",
-		"browserstack.debug": true
+		"bstack:options": {
+			"buildName": "browserstack-build-1",
+			"sessionName": "BStack single selenide",
+			"browserVersion": "latest",
+			"debug": true
+		}
 	},
 
 	"environments": {
 		"chrome": {
-			"browser": "chrome"
+			"browserName": "chrome"
 		}
 	}
 }
