@@ -97,7 +97,7 @@ public class BrowserStackTest {
 			bstackOptionsMap.put("source", "selenide:sample-master:v1.0");
 		}
 
-		driver = new RemoteWebDriver(new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		sessionId = driver.getSessionId().toString();
 
