@@ -14,10 +14,10 @@
 
 ## Running your tests
 
-- To run a single test, run `mvn test -P single`
+- To run tests, run `mvn test -P parallel`
 - To run local tests, run `mvn test -P local`
 - To run a full suite of tests, run `mvn test -P suite`
-- To run parallel tests, run `mvn test -P parallel`
+
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
