@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<surefire.version>2.19.1</surefire.version>
 
-		<default.file>config/single.testng.xml</default.file>
+		<default.file>config/parallel.testng.xml</default.file>
 		<surefire.fork.count>5</surefire.fork.count>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
