@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel" thread-count="3" parallel="tests">
+  <parameter name="config" value="parallel.conf.json"/>
 	<test name="SingleTestChrome">
-    <parameter name="config" value="parallel.conf.json"/>
     <parameter name="environment" value="chrome"/>
     <classes>
       <class name="com.browserstack.SingleTest"/>
@@ -10,7 +10,6 @@
 	</test>
 
 	<test name="SingleTestFirefox">
-    <parameter name="config" value="parallel.conf.json"/>
     <parameter name="environment" value="firefox"/>
     <classes>
       <class name="com.browserstack.SingleTest"/>
@@ -18,7 +17,6 @@
 	</test>
 
 	<test name="SingleTestSafari">
-    <parameter name="config" value="parallel.conf.json"/>
     <parameter name="environment" value="safari"/>
     <classes>
       <class name="com.browserstack.SingleTest"/>

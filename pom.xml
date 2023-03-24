@@ -117,6 +117,9 @@
 
 		<profile>
 			<id>parallel</id>
+      <activation>
+          <activeByDefault>true</activeByDefault>
+      </activation>
 			<build>
 				<plugins>
 					<plugin>
