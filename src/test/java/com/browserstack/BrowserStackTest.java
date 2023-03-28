@@ -94,7 +94,7 @@ public class BrowserStackTest {
 				options.put("key", accessKey);
 				l.start(options);
 			}
-			bstackOptionsMap.put("source", "selenide:sample-master:v1.0");
+			bstackOptionsMap.put("source", "selenide:sample-master:v1.1");
 		}
 
 		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
