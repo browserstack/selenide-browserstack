@@ -66,7 +66,7 @@ public class BrowserStackTest {
         JSONObject envs = (JSONObject) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserstack.source","selenide:sample-master:v1.0");
+        capabilities.setCapability("browserstack.source","selenide:sample-master:v1.1");
 
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(environment);
         Iterator it = envCapabilities.entrySet().iterator();
