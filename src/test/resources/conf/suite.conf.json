@@ -1,0 +1,28 @@
+{
+  "server": "hub.browserstack.com",
+  "user": "BROWSERSTACK_USERNAME",
+  "key": "BROWSERSTACK_ACCESS_KEY",
+
+  "capabilities": {
+    "bstack:options": {
+      "buildName": "browserstack-build-1",
+      "sessionName": "BStack suite selenide",
+      "debug": true
+    }
+  },
+
+  "environments": {
+    "chrome": {
+      "browserName": "chrome"
+    },
+    "firefox": {
+      "browserName": "firefox"
+    },
+    "safari": {
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "safari"
+    }
+  }
+}
