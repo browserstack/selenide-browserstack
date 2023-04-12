@@ -18,7 +18,8 @@ hs_err_pid*
 *.ipr
 *.iws
 /target/
+build
 
 .DS_Store
 local.log
-browserstack.err
+logs/
