@@ -77,7 +77,7 @@ jobs:
         id: status-check-completed
         env:
           conclusion: ${{ job.status }}
-          job_name: TestNG Repo ${{ matrix.Java }} - ${{ matrix.os }} Sample
+          job_name: Selenide Repo ${{ matrix.Java }} - ${{ matrix.os }} Sample
         with:
           github-token: ${{ github.token }}
           script: |
