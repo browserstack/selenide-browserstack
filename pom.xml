@@ -13,55 +13,41 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<surefire.version>2.19.1</surefire.version>
-
-		<default.file>config/parallel.testng.xml</default.file>
-		<surefire.fork.count>5</surefire.fork.count>
+		<applicationUrl>http://www.google.com</applicationUrl>
+		<selenium.version>4.1.0</selenium.version>
+		<testng.version>7.4.0</testng.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<config.file>config/sample.testng.xml</config.file>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
+			<version>${testng.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.5</version>
+			<version>2.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.browserstack</groupId>
-			<artifactId>browserstack-local-java</artifactId>
-			<version>1.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
+			<version>${selenium.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.codeborne</groupId>
 			<artifactId>selenide</artifactId>
-			<version>6.9.0</version>
+			<version>6.7.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.5.6</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.5.6</version>
+			<groupId>com.browserstack</groupId>
+			<artifactId>browserstack-java-sdk</artifactId>
+			<version>LATEST</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
@@ -69,12 +55,28 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>getClasspathFilenames</id>
+						<goals>
+							<goal>properties</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${surefire.version}</version>
+				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${default.file}</suiteXmlFile>
+						<suiteXmlFile>${config.file}</suiteXmlFile>
 					</suiteXmlFiles>
+					<argLine>
+						-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+					</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -82,7 +84,7 @@
 
 	<profiles>
 		<profile>
-			<id>single</id>
+			<id>sample-test</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -90,8 +92,11 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
 							<suiteXmlFiles>
-								<suiteXmlFile>config/single.testng.xml</suiteXmlFile>
+								<suiteXmlFile>config/sample.testng.xml</suiteXmlFile>
 							</suiteXmlFiles>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -99,7 +104,7 @@
 		</profile>
 
 		<profile>
-			<id>local</id>
+			<id>sample-local-test</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -109,29 +114,14 @@
 							<suiteXmlFiles>
 								<suiteXmlFile>config/local.testng.xml</suiteXmlFile>
 							</suiteXmlFiles>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
-
-		<profile>
-			<id>parallel</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<suiteXmlFiles>
-								<suiteXmlFile>config/parallel.testng.xml</suiteXmlFile>
-							</suiteXmlFiles>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 		<profile>
 			<id>suite</id>
 			<build>
@@ -143,11 +133,13 @@
 							<suiteXmlFiles>
 								<suiteXmlFile>config/suite.testng.xml</suiteXmlFile>
 							</suiteXmlFiles>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
-
 	</profiles>
 </project>

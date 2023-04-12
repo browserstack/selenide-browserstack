@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class SingleTest extends BrowserStackTest {
+public class SampleTest extends BrowserStackTest {
 
 	@Test
 	public void test() throws Exception {
