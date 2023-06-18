@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.title;
 import static com.codeborne.selenide.Selenide.open;
 import org.testng.Assert;
 
-public class LocalTest extends BrowserStackTest {
+public class BStackLocalTest extends BrowserStackTest {
 
 	@Test
 	public void test() throws Exception {
