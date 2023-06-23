@@ -35,6 +35,7 @@ public class BrowserStackTest {
     public void setUp() throws Exception {
         MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, String> bstackOptions = new HashMap<>();
+        bstackOptions.put("source", "selenide:sample-sdk:v1.0");
         capabilities.setCapability("bstack:options", bstackOptions);
         driver = new RemoteWebDriver(new URL(String.format("https://%s:%s@hub-cloud.browserstack.com/wd/hub", userName, accessKey)), capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
