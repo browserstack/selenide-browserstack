@@ -3,7 +3,7 @@
 <suite name="Sample">
 	<test name="SampleTest">
 		<classes>
-			<class name="com.browserstack.SampleTest"/>
+			<class name="com.browserstack.BStackSampleTest"/>
 		</classes>
 	</test>
 </suite>
