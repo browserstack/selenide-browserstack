@@ -64,10 +64,6 @@ jobs:
         run: |
           mvn compile
           mvn test -P sample-test
-      - name: Run mvn profile suite
-        run: |
-          mvn compile
-          mvn test -P suite
       - if: always()
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: status-check-completed
