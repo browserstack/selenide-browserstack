@@ -16,6 +16,7 @@
 		<applicationUrl>http://www.google.com</applicationUrl>
 		<selenium.version>4.1.0</selenium.version>
 		<testng.version>7.4.0</testng.version>
+		<snakeyaml.version>2.2</snakeyaml.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<config.file>config/sample.testng.xml</config.file>
@@ -42,6 +43,11 @@
 			<artifactId>selenide</artifactId>
 			<version>6.7.2</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>${snakeyaml.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.browserstack</groupId>
