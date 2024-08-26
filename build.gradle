@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.0'
+    implementation 'com.codeborne:selenide:6.17.0'
+    implementation 'org.yaml:snakeyaml:2.2'
+    compileOnly 'com.browserstack:browserstack-java-sdk:latest.release'
+}
+
+group = 'com.browserstack'
+version = '1.0-SNAPSHOT'
+description = 'selenide-browserstack'
+sourceCompatibility = '1.8'
+
+def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+}
+
+task sampleTest(type: Test) {
+    useTestNG() {
+        dependsOn cleanTest
+        useDefaultListeners = true
+        suites "config/sample.testng.xml"
+        jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
+    }
+}
+
+task sampleLocalTest(type: Test) {
+    useTestNG() {
+        dependsOn cleanTest
+        useDefaultListeners = true
+        suites "config/local.testng.xml"
+        jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
+    }
+}
