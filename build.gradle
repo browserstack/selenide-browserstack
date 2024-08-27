@@ -9,7 +9,7 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.1.0'
     implementation 'com.codeborne:selenide:6.17.0'
     implementation 'org.yaml:snakeyaml:2.2'
-    compileOnly 'com.browserstack:browserstack-java-sdk:latest.release'
+    implementation 'com.browserstack:browserstack-java-sdk:latest.release'
 }
 
 group = 'com.browserstack'
