@@ -19,6 +19,9 @@ hs_err_pid*
 *.iws
 /target/
 build
+.gradle
+gradle
+gradlew*
 
 .DS_Store
 local.log
