@@ -25,6 +25,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties = System.properties
+    jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
 }
 
 task sampleTest(type: Test) {
@@ -32,7 +33,6 @@ task sampleTest(type: Test) {
         dependsOn cleanTest
         useDefaultListeners = true
         suites "config/sample.testng.xml"
-        jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
     }
 }
 
@@ -41,6 +41,5 @@ task sampleLocalTest(type: Test) {
         dependsOn cleanTest
         useDefaultListeners = true
         suites "config/local.testng.xml"
-        jvmArgs "-javaagent:${browserstackSDKArtifact.file}"
     }
 }
