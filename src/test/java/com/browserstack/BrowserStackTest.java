@@ -14,6 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.yaml.snakeyaml.Yaml;
 
@@ -33,13 +34,13 @@ public class BrowserStackTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
-        MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, String> bstackOptions = new HashMap<>();
         bstackOptions.put("source", "selenide:sample-master:v1.2");
-        capabilities.setCapability("bstack:options", bstackOptions);
-        driver = new RemoteWebDriver(new URL(String.format("https://%s:%s@hub-cloud.browserstack.com/wd/hub", userName, accessKey)), capabilities);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebDriverRunner.setWebDriver(driver);
+        bstackOptions.put("userName", userName);
+        bstackOptions.put("accessKey", accessKey);
+        Configuration.timeout = 10000;
+        Configuration.remote = "https://hub-cloud.browserstack.com/wd/hub";
+        Configuration.browserCapabilities.setCapability("bstack:options", bstackOptions);
     }
 
     @AfterMethod(alwaysRun = true)
