@@ -43,10 +43,10 @@ public class BrowserStackTest {
         Configuration.browserCapabilities.setCapability("bstack:options", bstackOptions);
     }
 
-    // @AfterMethod(alwaysRun = true)
-    // public void tearDown() {
-    //     WebDriverRunner.getWebDriver().quit();
-    // }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        WebDriverRunner.getWebDriver().quit();
+    }
 
     private String getUserDir() {
         return System.getProperty(USER_DIR);
